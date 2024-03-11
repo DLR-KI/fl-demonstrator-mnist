@@ -1,0 +1,31 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Mkdocs serve",
+            "type": "python",
+            "request": "launch",
+            "module": "mkdocs",
+            "justMyCode": false,
+            "args": [
+                "serve"
+            ]
+        },
+        {
+            "name": "Start Client",
+            "type": "python",
+            "request": "launch",
+            "module": " dlr.fl.client",
+            "justMyCode": false,
+            "env": {
+                "FL_DEMONSTRATOR_BASE_URL": "http://localhost:8000",
+                "FL_DEMONSTRATOR_TRAINING_SCRIPT_PATH": "dlr/fl/examples/mnist/main.py",
+                "FL_CLIENT_SETTINGS_MODULE": "dlr.fl.examples.mnist.settings.Settings",
+                "FL_CLIENT_ADDITIONAL_SYS_PATH": "${workspaceRootPath}/dlr/fl/examples/mnist"
+            }
+        }
+    ]
+}

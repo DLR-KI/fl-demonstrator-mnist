@@ -1,0 +1,65 @@
+version: '3.7'
+
+services:
+  web:
+    image: ghcr.io/dlr-ki/fl-demonstrator-django:main
+    container_name: web
+    restart: always
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - server.env
+    networks:
+      - mnist-demo
+
+  celery:
+    image: ghcr.io/dlr-ki/fl-demonstrator-celery:main
+    container_name: celery
+    restart: always
+    depends_on:
+      - redis
+    env_file:
+      - server.env
+    networks:
+      - mnist-demo
+
+  redis:
+    image: redis
+    container_name: redis
+    restart: always
+    networks:
+      - mnist-demo
+
+  db:
+    image: postgres
+    container_name: db
+    restart: always
+    env_file:
+      - server.env
+    networks:
+      - mnist-demo
+
+  s3:
+    image: quay.io/minio/minio
+    container_name: s3
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    command: server /data --console-address ":9001"
+    env_file:
+      - server.env
+    networks:
+      - mnist-demo
+    volumes:
+      - s3data:/data
+
+
+networks:
+  mnist-demo:
+    external: true
+
+volumes:
+  s3data:

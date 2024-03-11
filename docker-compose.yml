@@ -1,0 +1,169 @@
+version: '3.7'
+
+services:
+
+  client-01:
+    image: local/fl-demonstrator-client-mnist
+    build: .
+    container_name: client-01
+    volumes:
+      - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
+      - "./data/client-01.pt:/home/client/app/data/client-train.pt:ro"
+    environment:
+      - CLIENT_ID=${CLIENT_01:-}
+      - FL_DEMONSTRATOR_USERNAME=mnist-client-01
+      # s3 endpoint for tensorboard
+      - S3_ENDPOINT=http://s3:9000
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+    networks:
+      - mnist-demo
+
+  client-02:
+    image: local/fl-demonstrator-client-mnist
+    container_name: client-02
+    volumes:
+      - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
+      - "./data/client-02.pt:/home/client/app/data/client-train.pt:ro"
+    environment:
+      - CLIENT_ID=${CLIENT_02:-}
+      - FL_DEMONSTRATOR_USERNAME=mnist-client-02
+      # s3 endpoint for tensorboard
+      - S3_ENDPOINT=http://s3:9000
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+    networks:
+      - mnist-demo
+
+  client-03:
+    image: local/fl-demonstrator-client-mnist
+    container_name: client-03
+    volumes:
+      - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
+      - "./data/client-03.pt:/home/client/app/data/client-train.pt:ro"
+    environment:
+      - CLIENT_ID=${CLIENT_03:-}
+      - FL_DEMONSTRATOR_USERNAME=mnist-client-03
+      # s3 endpoint for tensorboard
+      - S3_ENDPOINT=http://s3:9000
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+    networks:
+      - mnist-demo
+
+  client-04:
+    image: local/fl-demonstrator-client-mnist
+    container_name: client-04
+    volumes:
+      - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
+      - "./data/client-04.pt:/home/client/app/data/client-train.pt:ro"
+    environment:
+      - CLIENT_ID=${CLIENT_04:-}
+      - FL_DEMONSTRATOR_USERNAME=mnist-client-04
+      # s3 endpoint for tensorboard
+      - S3_ENDPOINT=http://s3:9000
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+    networks:
+      - mnist-demo
+
+  client-05:
+    image: local/fl-demonstrator-client-mnist
+    container_name: client-05
+    volumes:
+      - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
+      - "./data/client-05.pt:/home/client/app/data/client-train.pt:ro"
+    environment:
+      - CLIENT_ID=${CLIENT_05:-}
+      - FL_DEMONSTRATOR_USERNAME=mnist-client-05
+      # s3 endpoint for tensorboard
+      - S3_ENDPOINT=http://s3:9000
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+    networks:
+      - mnist-demo
+
+  client-06:
+    image: local/fl-demonstrator-client-mnist
+    container_name: client-06
+    volumes:
+      - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
+      - "./data/client-06.pt:/home/client/app/data/client-train.pt:ro"
+    environment:
+      - CLIENT_ID=${CLIENT_06:-}
+      - FL_DEMONSTRATOR_USERNAME=mnist-client-06
+      # s3 endpoint for tensorboard
+      - S3_ENDPOINT=http://s3:9000
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+    networks:
+      - mnist-demo
+
+  client-07:
+    image: local/fl-demonstrator-client-mnist
+    container_name: client-07
+    volumes:
+      - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
+      - "./data/client-07.pt:/home/client/app/data/client-train.pt:ro"
+    environment:
+      - CLIENT_ID=${CLIENT_07:-}
+      - FL_DEMONSTRATOR_USERNAME=mnist-client-07
+      # s3 endpoint for tensorboard
+      - S3_ENDPOINT=http://s3:9000
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+    networks:
+      - mnist-demo
+
+  client-08:
+    image: local/fl-demonstrator-client-mnist
+    container_name: client-08
+    volumes:
+      - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
+      - "./data/client-08.pt:/home/client/app/data/client-train.pt:ro"
+    environment:
+      - CLIENT_ID=${CLIENT_08:-}
+      - FL_DEMONSTRATOR_USERNAME=mnist-client-08
+      # s3 endpoint for tensorboard
+      - S3_ENDPOINT=http://s3:9000
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+    networks:
+      - mnist-demo
+
+  client-09:
+    image: local/fl-demonstrator-client-mnist
+    container_name: client-09
+    volumes:
+      - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
+      - "./data/client-09.pt:/home/client/app/data/client-train.pt:ro"
+    environment:
+      - CLIENT_ID=${CLIENT_09:-}
+      - FL_DEMONSTRATOR_USERNAME=mnist-client-09
+      # s3 endpoint for tensorboard
+      - S3_ENDPOINT=http://s3:9000
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+    networks:
+      - mnist-demo
+
+  client-10:
+    image: local/fl-demonstrator-client-mnist
+    container_name: client-10
+    volumes:
+      - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
+      - "./data/client-10.pt:/home/client/app/data/client-train.pt:ro"
+    environment:
+      - CLIENT_ID=${CLIENT_10:-}
+      - FL_DEMONSTRATOR_USERNAME=mnist-client-10
+      # s3 endpoint for tensorboard
+      - S3_ENDPOINT=http://s3:9000
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+    networks:
+      - mnist-demo
+
+
+networks:
+  mnist-demo:
+    external: true
