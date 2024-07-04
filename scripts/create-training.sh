@@ -1,4 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# -*- coding: utf-8 -*-
+
+# SPDX-FileCopyrightText: 2024 Benedikt Franke <benedikt.franke@dlr.de>
+# SPDX-FileCopyrightText: 2024 Florian Heinrich <florian.heinrich@dlr.de>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 ###############################################################################
 # Create Training #
 ###################
@@ -56,6 +63,7 @@ http_code=$(curl -sS -X POST "${DEMONSTRATOR_BASE_URL}/api/trainings/" \
   "target_num_updates": 3,
   "metric_names": ["accuracy", "f1_score"],
   "aggregation_method": "FedAvg",
+  "uncertainty_method": "MC_DROPOUT",
   "clients": $clients
 }
 EOF

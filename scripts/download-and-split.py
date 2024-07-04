@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+# SPDX-FileCopyrightText: 2024 Benedikt Franke <benedikt.franke@dlr.de>
+# SPDX-FileCopyrightText: 2024 Florian Heinrich <florian.heinrich@dlr.de>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 import pickle
 import torch
 from torch.utils.data import Subset
@@ -29,6 +34,10 @@ def save_to_file(obj, filepath):
 if __name__ == "__main__":
     client_data_sizes = [50, 100, 75, 250, 15, 300, 80, 120, 180, 140]
     test_data_size = 200
+
+    # more data (10 times)
+    client_data_sizes = [x * 10 for x in client_data_sizes]
+    test_data_size = test_data_size * 10
 
     trainset, testset = get_datasets()
     indices = torch.arange(len(trainset))

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 Benedikt Franke <benedikt.franke@dlr.de>
+# SPDX-FileCopyrightText: 2024 Florian Heinrich <florian.heinrich@dlr.de>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 import pickle
 import torch
 from torch.nn import Module
@@ -67,9 +72,10 @@ def train_epoch(config: Config, model: Module, train_loader: DataLoader, optimiz
         loss.backward()
         optimizer.step()
         if batch_idx % config.log_interval == 0 or batch_idx == dataloader_length - 1:
+            x = batch_idx * config.batch_size + len(data)
             msg = "Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}".format(
-                epoch, batch_idx * config.batch_size + len(data), dataset_length,
-                100. * batch_idx / len(train_loader), loss.item()
+                epoch, x, dataset_length,
+                100. * x / dataset_length, loss.item()
             )
             config.logger.info(msg)
 

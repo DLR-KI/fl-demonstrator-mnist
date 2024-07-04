@@ -1,8 +1,15 @@
-version: '3.7'
+# SPDX-FileCopyrightText: 2024 Benedikt Franke <benedikt.franke@dlr.de>
+# SPDX-FileCopyrightText: 2024 Florian Heinrich <florian.heinrich@dlr.de>
+#
+# SPDX-License-Identifier: Apache-2.0
 
 services:
   web:
     image: ghcr.io/dlr-ki/fl-demonstrator-django:main
+    #image: local/fl-demonstrator-django:latest
+    #build:
+    #  context: ../fl-demonstrator
+    #  dockerfile: ../fl-demonstrator/docker/django/Dockerfile
     container_name: web
     restart: always
     ports:
@@ -17,6 +24,10 @@ services:
 
   celery:
     image: ghcr.io/dlr-ki/fl-demonstrator-celery:main
+    #image: local/fl-demonstrator-celery:latest
+    #build:
+    #  context: ../fl-demonstrator
+    #  dockerfile: ../fl-demonstrator/docker/celery/Dockerfile
     container_name: celery
     restart: always
     depends_on:

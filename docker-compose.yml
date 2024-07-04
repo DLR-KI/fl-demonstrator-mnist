@@ -1,10 +1,14 @@
-version: '3.7'
+# SPDX-FileCopyrightText: 2024 Benedikt Franke <benedikt.franke@dlr.de>
+# SPDX-FileCopyrightText: 2024 Florian Heinrich <florian.heinrich@dlr.de>
+#
+# SPDX-License-Identifier: Apache-2.0
 
 services:
 
   client-01:
-    image: local/fl-demonstrator-client-mnist
-    build: .
+    image: ghcr.io/dlr-ki/fl-demonstrator-mnist:main
+    #image: local/fl-demonstrator-mnist:latest
+    #build: .
     container_name: client-01
     volumes:
       - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
@@ -20,7 +24,8 @@ services:
       - mnist-demo
 
   client-02:
-    image: local/fl-demonstrator-client-mnist
+    image: ghcr.io/dlr-ki/fl-demonstrator-mnist:main
+    #image: local/fl-demonstrator-mnist:latest
     container_name: client-02
     volumes:
       - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
@@ -36,7 +41,8 @@ services:
       - mnist-demo
 
   client-03:
-    image: local/fl-demonstrator-client-mnist
+    image: ghcr.io/dlr-ki/fl-demonstrator-mnist:main
+    #image: local/fl-demonstrator-mnist:latest
     container_name: client-03
     volumes:
       - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
@@ -52,7 +58,8 @@ services:
       - mnist-demo
 
   client-04:
-    image: local/fl-demonstrator-client-mnist
+    image: ghcr.io/dlr-ki/fl-demonstrator-mnist:main
+    #image: local/fl-demonstrator-mnist:latest
     container_name: client-04
     volumes:
       - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
@@ -68,7 +75,8 @@ services:
       - mnist-demo
 
   client-05:
-    image: local/fl-demonstrator-client-mnist
+    image: ghcr.io/dlr-ki/fl-demonstrator-mnist:main
+    #image: local/fl-demonstrator-mnist:latest
     container_name: client-05
     volumes:
       - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
@@ -84,7 +92,8 @@ services:
       - mnist-demo
 
   client-06:
-    image: local/fl-demonstrator-client-mnist
+    image: ghcr.io/dlr-ki/fl-demonstrator-mnist:main
+    #image: local/fl-demonstrator-mnist:latest
     container_name: client-06
     volumes:
       - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
@@ -100,7 +109,8 @@ services:
       - mnist-demo
 
   client-07:
-    image: local/fl-demonstrator-client-mnist
+    image: ghcr.io/dlr-ki/fl-demonstrator-mnist:main
+    #image: local/fl-demonstrator-mnist:latest
     container_name: client-07
     volumes:
       - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
@@ -116,7 +126,8 @@ services:
       - mnist-demo
 
   client-08:
-    image: local/fl-demonstrator-client-mnist
+    image: ghcr.io/dlr-ki/fl-demonstrator-mnist:main
+    #image: local/fl-demonstrator-mnist:latest
     container_name: client-08
     volumes:
       - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
@@ -132,7 +143,8 @@ services:
       - mnist-demo
 
   client-09:
-    image: local/fl-demonstrator-client-mnist
+    image: ghcr.io/dlr-ki/fl-demonstrator-mnist:main
+    #image: local/fl-demonstrator-mnist:latest
     container_name: client-09
     volumes:
       - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
@@ -148,7 +160,8 @@ services:
       - mnist-demo
 
   client-10:
-    image: local/fl-demonstrator-client-mnist
+    image: ghcr.io/dlr-ki/fl-demonstrator-mnist:main
+    #image: local/fl-demonstrator-mnist:latest
     container_name: client-10
     volumes:
       - "./data/client-test.pt:/home/client/app/data/client-test.pt:ro"
