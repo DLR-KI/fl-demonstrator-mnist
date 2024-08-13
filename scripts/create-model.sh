@@ -52,6 +52,7 @@ http_code=$(curl -sS -X POST "${DEMONSTRATOR_BASE_URL}/api/models/" \
   -w "%{http_code}" \
   -F name="MNIST Model" \
   -F description="A PyTorch model for MNIST classification" \
+  -F "input_shape=None" -F "input_shape=1" -F "input_shape=28" -F "input_shape=28" \
   -F model_file=@data/torch-model.pt
 )
 if [ "$http_code" = "201" ]; then
