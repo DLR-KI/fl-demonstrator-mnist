@@ -7,6 +7,8 @@ SPDX-License-Identifier: Apache-2.0
 
 # Federated Learning Demonstrator MNIST Example
 
+[![DOI](https://zenodo.org/badge/770438105.svg)](https://doi.org/10.5281/zenodo.13951224 )
+
 This repository contains an example client of a Federated Learning platform.
 The example shows how to create a client which trains a model based on the popular [MNIST](http://yann.lecun.com/exdb/mnist) dataset.
 This repository also include many scripts to show how to interact with the Federated Learning platform directly.
