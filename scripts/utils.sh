@@ -1,6 +1,4 @@
-# SPDX-FileCopyrightText: 2024 Benedikt Franke <benedikt.franke@dlr.de>
-# SPDX-FileCopyrightText: 2024 Florian Heinrich <florian.heinrich@dlr.de>
-#
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR)
 # SPDX-License-Identifier: Apache-2.0
 
 ###############################################################################
@@ -9,7 +7,7 @@
 # This script contains utility functions and global variables.
 ###############################################################################
 # Usage:
-# Asuming this script is in the same directory:
+# Assuming this script is in the same directory:
 #   source "$(dirname "${BASH_SOURCE[0]}")/utils.sh"
 #   info "Hello World"
 ###############################################################################
