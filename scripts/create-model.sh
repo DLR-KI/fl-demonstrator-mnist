@@ -37,7 +37,7 @@ fi
 if [ -f ./data/torch-model.pt ]; then
   info "A PyTorch model already exists ... skip"
 else
-  python ./scripts/create-torch-model-file.py
+  uv run python ./scripts/create-torch-model-file.py
 fi
 
 # create
