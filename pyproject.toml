@@ -6,9 +6,7 @@
 # package, this name will be registered for you. It will determine how
 # users can install this project, e.g.:
 #
-# $ pip install fl-demonstrator-mnist
-#
-# And where it will live on PyPI: https://pypi.org/project/fl-demonstrator-mnist/
+# $ uv add "fl-demonstrator-mnist @ git+https://github.com/DLR-KI/fl-demonstrator-mnist.git"
 #
 # There are some restrictions on what makes a valid project name
 # specification here:
@@ -20,7 +18,7 @@ name = "fl-demonstrator-mnist"  # Required
 #
 # For a discussion on single-sourcing the version, see
 # https://packaging.python.org/guides/single-sourcing-package-version/
-version = "1.0.0"  # Required
+version = "1.0.1"  # Required
 
 # This is a one-line description or tagline of what your project does. This
 # corresponds to the "Summary" metadata field:
@@ -43,10 +41,14 @@ readme = "README.md"  # Optional
 # https://packaging.python.org/guides/distributing-packages-using-setuptools/#python-requires
 requires-python = ">=3.10"
 
-# This is either text indicating the license for the distribution, or a file
-# that contains the license
-# https://packaging.python.org/en/latest/specifications/core-metadata/#license
-license = {file = "LICENSES/Apache-2.0.txt"}
+# SPDX license expression indicating the license for the distribution.
+# Value is mapped to the License-Expression field in the core metadata.
+# https://packaging.python.org/en/latest/specifications/core-metadata/#license-expression
+license = "Apache-2.0"
+
+# License file paths relative to the project root directory.
+# https://packaging.python.org/en/latest/specifications/core-metadata/#license-expression
+license-files = ["LICENSE.md", "LICENSES/*"]
 
 # This field adds keywords for your project which will appear on the
 # project page. What does your project relate to?
@@ -86,15 +88,15 @@ classifiers = [  # Optional
   "Topic :: Scientific/Engineering",
   "Operating System :: OS Independent",
 
-  # Pick your license as you wish
-  "License :: OSI Approved :: Apache Software License",
-
   # Specify the Python versions you support here. In particular, ensure
   # that you indicate you support Python 3. These classifiers are *not*
   # checked by "pip install". See instead "python_requires" below.
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
   "Programming Language :: Python :: 3 :: Only",
 ]
 
@@ -105,44 +107,51 @@ classifiers = [  # Optional
 # For an analysis of this field vs pip's requirements files see:
 # https://packaging.python.org/discussions/install-requires-vs-requirements/
 dependencies = [  # Optional
-  "boto3~=1.42.72",  # used for S3 storage  # cspell:ignore boto
+  "boto3>=1.42.72",  # used for S3 storage  # cspell:ignore boto
   "fl-demonstrator-client @ git+https://github.com/DLR-KI/fl-demonstrator-client.git@main",
   "dlr-logging @ git+https://github.com/DLR-KI/fl-logging-base.git@main",
-  "numpy~=2.2.6",
-  "tensorboard~=2.20.0",
-  "torch~=2.3",
-  "torcheval~=0.0.7",
-  "torchvision~=0.18",
+  "numpy>=2.2.6",
+  "tensorboard>=2.20.0",
+  "torch>=2.3",
+  "torcheval>=0.0.7",
+  "torchvision>=0.18",
 ]
 
 # List additional groups of dependencies here (e.g. development
 # dependencies). Users will be able to install these using the "extras"
 # syntax, for example:
 #
-#   $ pip install -e ".[all]"
+#   $ uv sync --all-extras
 #
 # Similar to `dependencies` above, these must be valid existing
 # projects.
 [project.optional-dependencies]  # Optional
 dev = [
-  "pre-commit>=3.3.2",
-  "reuse>=4.0.3",
-  "tox>=4.5.1",
+  "pre-commit",
+  "reuse",
+  "tox",
 ]
 test = [
-  "autopep8>=2.0.2",
-  "coverage>=7.2.7",
-  "flake8>=6.0.0",
-  "flake8-pyproject>=1.2.3",
-  "licensecheck",  # no version, install latest version
-  "mypy>=1.3.0",
-  #"pytest>=7.4.0",
-  "shellcheck-py>=0.9.0.6",
+  "autopep8",
+  "coverage",
+  "flake8",
+  "flake8-pyproject",
+  "licensecheck",
+  "mypy",
+  #"pytest",
+  "shellcheck-py",
 ]
 stubs = []
 doc = [
-  "portray @ git+https://github.com/HeinrichAD/portray.git@develop",
-  #"plantuml-markdown>=3.9.2",  # post-install: cp plantuml_markdown.py into markdown/extensions
+  "mkdocs",
+  "mkdocs-awesome-pages-plugin",
+  "mkdocs-git-revision-date-localized-plugin",
+  "mkdocs-material",
+  "mkdocs-minify-plugin",
+  "mkdocs-api-autonav",
+  "mkdocstrings",
+  "mkdocstrings-python",
+  "pymdown-extensions",
 ]
 all = ["fl-demonstrator-mnist[dev,test,stubs,doc]"]
 
@@ -176,7 +185,6 @@ all = ["fl-demonstrator-mnist[dev,test,stubs,doc]"]
 # installed, specify them here.
 packages = ["src"]
 package-data = {"src" = ["py.typed"]}
-license-files = ["LICENSES/*.txt"]
 
 [build-system]
 # These are the assumed default build requirements from pip:

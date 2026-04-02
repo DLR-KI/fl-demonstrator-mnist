@@ -27,5 +27,5 @@ identifiers:
 repository-code: 'https://github.com/DLR-KI/fl-demonstrator-mnist'
 url: 'https://dlr-ki.github.io/fl-demonstrator-mnist/'
 keywords:
-  - Federaed Machine Learning
+  - Federated Machine Learning
   - Python
