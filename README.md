@@ -1,7 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2024 Benedikt Franke <benedikt.franke@dlr.de>
-SPDX-FileCopyrightText: 2024 Florian Heinrich <florian.heinrich@dlr.de>
-
+SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR)
 SPDX-License-Identifier: Apache-2.0
 -->
 
@@ -33,29 +31,18 @@ They offer a more user-friendly interface and comprehensive guides to get you st
 
 ## Requirements
 
-- python 3.10 or later  
+- Python 3.10 or later  
   `which python`
-- virtualenv or venv  
-  `pip install -U virtualenv`
+- [uv](https://docs.astral.sh/uv/)  
+  `curl -LsSf https://astral.sh/uv/install.sh | sh`
 - jq command for JSON parsing inside bash  
   `sudo apt-get install jq`
 
 ## Install
 
 ```bash
-# create virtual environment
-virtualenv -p $(which python3.10) .venv
-# or
-# python -m venv .venv
-
-# activate our virtual environment
-source .venv/bin/activate
-
-# update pip (optional)
-python -m pip install -U pip
-
-# install
-./dev install -U -e ".[all]"
+# create virtual environment and install dependencies
+./dev install
 ```
 
 ## Helpers

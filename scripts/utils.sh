@@ -1,6 +1,4 @@
-# SPDX-FileCopyrightText: 2024 Benedikt Franke <benedikt.franke@dlr.de>
-# SPDX-FileCopyrightText: 2024 Florian Heinrich <florian.heinrich@dlr.de>
-#
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR)
 # SPDX-License-Identifier: Apache-2.0
 
 ###############################################################################
@@ -9,7 +7,7 @@
 # This script contains utility functions and global variables.
 ###############################################################################
 # Usage:
-# Asuming this script is in the same directory:
+# Assuming this script is in the same directory:
 #   source "$(dirname "${BASH_SOURCE[0]}")/utils.sh"
 #   info "Hello World"
 ###############################################################################
@@ -77,7 +75,7 @@ trap_add() {
   for trap_add_name in "$@"; do
     trap -- "$(
       # helper fn to get existing trap command from output of trap -p
-      # shellcheck disable=SC2317
+      # shellcheck disable=SC2317,SC2329
       extract_trap_cmd() { printf '%s\n' "$3"; }
       # print existing trap command with newline
       eval "extract_trap_cmd $(trap -p "${trap_add_name}")"

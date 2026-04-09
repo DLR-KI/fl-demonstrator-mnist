@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 
-# SPDX-FileCopyrightText: 2024 Benedikt Franke <benedikt.franke@dlr.de>
-# SPDX-FileCopyrightText: 2024 Florian Heinrich <florian.heinrich@dlr.de>
-#
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR)
 # SPDX-License-Identifier: Apache-2.0
 
 ###############################################################################
 # Create Model #
 ################
-# This script creates a model via http(s) post request on the Ferderated
-# Learning Demonstrator plattform.
+# This script creates a model via http(s) post request on the Federated
+# Learning Demonstrator platform.
 ###############################################################################
 set -o pipefail
 
@@ -39,7 +37,7 @@ fi
 if [ -f ./data/torch-model.pt ]; then
   info "A PyTorch model already exists ... skip"
 else
-  python ./scripts/create-torch-model-file.py
+  uv run python ./scripts/create-torch-model-file.py
 fi
 
 # create

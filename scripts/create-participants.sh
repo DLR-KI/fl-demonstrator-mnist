@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 
-# SPDX-FileCopyrightText: 2024 Benedikt Franke <benedikt.franke@dlr.de>
-# SPDX-FileCopyrightText: 2024 Florian Heinrich <florian.heinrich@dlr.de>
-#
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR)
 # SPDX-License-Identifier: Apache-2.0
 
 ###############################################################################
 # Create Participants #
 #######################
 # This script creates multiple participants via http(s) post request on the
-# Ferderated Learning Demonstrator plattform.
+# Federated Learning Demonstrator platform.
 # There will be a single actor who is also is client and multiple other client
 # user.
 ###############################################################################
