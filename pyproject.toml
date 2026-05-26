@@ -192,6 +192,9 @@ package-data = {"src" = ["py.typed"]}
 requires = ["setuptools>=43.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[tool.uv]
+exclude-newer = "7 days"
+
 #######################################################################################################################
 
 # licensecheck

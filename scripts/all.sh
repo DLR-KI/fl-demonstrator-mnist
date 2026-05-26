@@ -17,10 +17,10 @@ info "Docker cleanup"
 docker volume prune -f
 
 info "Create example torch model file"
-python ./scripts/create-torch-model-file.py
+uv run ./scripts/create-torch-model-file.py
 
 info "Download MNIST dataset and split it into 10 small and unique client subsets"
-python ./scripts/download-and-split.py
+uv run ./scripts/download-and-split.py
 
 info "Create a virtual demonstration network for all docker container"
 docker network create mnist-demo

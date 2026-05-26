@@ -13,8 +13,14 @@ services:
     ports:
       - 8000:8000
     depends_on:
-      - db
-      - redis
+      db:
+        condition: service_started
+      redis:
+        condition: service_started
+      s3:
+        condition: service_healthy
+      s3-setup:
+        condition: service_completed_successfully
     env_file:
       - server.env
     networks:
@@ -52,18 +58,44 @@ services:
       - mnist-demo
 
   s3:
-    image: quay.io/minio/minio
+    image: rustfs/rustfs:latest
     container_name: s3
     ports:
-      - "9000:9000"
-      - "9001:9001"
+      - "9000:9000"  # S3 API port
+      - "9001:9001"  # console port
     command: server /data --console-address ":9001"
     env_file:
       - server.env
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "sh", "-c",
+          "curl -f http://localhost:9000/health && curl -f http://localhost:9001/rustfs/console/health"
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
     networks:
       - mnist-demo
     volumes:
       - s3data:/data
+
+  s3-setup:
+    image: rustfs/rc:latest
+    container_name: s3-setup
+    env_file:
+      - server.env
+    volumes:
+      - ./s3-entrypoint.sh:/s3-entrypoint.sh:ro
+    entrypoint:
+      - /s3-entrypoint.sh
+    networks:
+      - mnist-demo
+    depends_on:
+      s3:
+        condition: service_healthy
 
 
 networks:
