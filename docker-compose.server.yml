@@ -63,7 +63,7 @@ services:
     ports:
       - "9000:9000"  # S3 API port
       - "9001:9001"  # console port
-    command: server /data --console-address ":9001"
+    command: /usr/bin/rustfs /data --console-address ":9001"
     env_file:
       - server.env
     healthcheck:
